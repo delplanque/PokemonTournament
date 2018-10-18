@@ -2,7 +2,7 @@ Delplanque Jordan
 
 Demande initial faites.
 
-Quand le tournoi commence, celui-ci est configuré pour contenir 10 pokémons
+Quand le tournoi commence, celui-ci est configuré pour contenir 16 pokémons
 
 La liste des pokémons du tournoi est créée de manière aléatoire grâce 
 à la fonction contenue dans l'énumétation ListPokemon.
