@@ -5,7 +5,7 @@ import tournament.Tournament;
 public class main {
 
 	public static void main(String[] args) {
-		Tournament tournoi = new Tournament(2);
+		Tournament tournoi = new Tournament(16);
 		int tour = 1;		
 		System.out.println("Pokemons dans le tournoi : ");
 		for(Pokemon p: tournoi.getlPokemons()) {
