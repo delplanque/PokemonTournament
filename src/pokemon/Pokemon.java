@@ -8,18 +8,20 @@ public class Pokemon {
 	private int ptVie;
 	private int ptVieStart;
 	private int puissance;
-	private int niveau;
+	private int defense;
+	private int vitesse;
 	
 	
 	
-	public Pokemon (String nom, String criVictoire,String criDefaite,int ptVie,int puissance,int niveau) {
+	public Pokemon (String nom, String criVictoire,String criDefaite,int ptVie,int puissance,int defense,int vitesse) {
 		this.setCriDefaite(criDefaite);
 		this.setCriVictoire(criVictoire);
 		this.setNom(nom);
 		this.setPtVie(ptVie);
 		this.ptVieStart = ptVie;
 		this.setPuissance(puissance);
-		this.setniveau(niveau);
+		this.setDefense(defense);
+		this.setVitesse(vitesse);
 	}
 	
 	public String getNom() {
@@ -62,25 +64,23 @@ public class Pokemon {
 		this.puissance = puissance;
 	}
 	
-	public int getniveau() {
-		return niveau;
+	public int getDefense() {
+		return defense;
 	}
 	
-	public void setniveau(int niveau) {
-		this.niveau = niveau;
+	public void setDefense(int defense) {
+		this.defense = defense;
 	}
 	
-	public void takeDegats(int puissance, int niveau) {
-		int diff = this.getniveau() - niveau;
-			if(diff >= 0)
-				this.setPtVie(this.getPtVie()-(puissance - diff));
-			else {
-				if((puissance + (-diff) < 0)){
-					this.setPtVie(this.getPtVie()-1);
-			} else
-				this.setPtVie(this.getPtVie()-(puissance + (-diff)));
-				
-			} 
+	public void takeDegats(int puissance) {
+		int dommage;
+		if(defense > puissance) {
+			dommage = 1;
+		}
+		else {
+			dommage = puissance - defense;
+		}
+			this.setPtVie(this.getPtVie()-dommage);
 	}
 
 	public int getPtVieStart() {
@@ -88,7 +88,16 @@ public class Pokemon {
 	}
 	
 	public String toString() {
-		return this.getNom() + " est lvl "+this.getniveau() + ", il a " + this.getPtVie() + " de vie et sa puissance d'attaque est " + this.getPuissance();
+		return this.getNom() +" a " + this.getPtVie() + " de vie , sa puissance d'attaque est " + this.getPuissance()
+		+ " , sa defense est de " +this.getDefense() + " et il a une vitesse de " + this.getVitesse();
+	}
+
+	public int getVitesse() {
+		return vitesse;
+	}
+
+	public void setVitesse(int vitesse) {
+		this.vitesse = vitesse;
 	}
 
 }

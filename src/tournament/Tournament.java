@@ -41,12 +41,20 @@ public class Tournament {
 		for(Pokemon[] p: manche) {
 			System.out.println("\n");
 			if(p[0] != null && p[1] != null) {
-				Pokemon adv1 = p[0];
-				Pokemon adv2 = p[1];
+				Pokemon adv1= null;
+				Pokemon adv2= null;
+				if(p[0].getVitesse() > p[1].getVitesse()) {
+					adv1 = p[0];
+					adv2 = p[1];
+				}else {
+						adv1 = p[1];
+						adv2 = p[0];
+				}
+
 				while(adv1.getPtVie() > 0 && adv2.getPtVie() > 0 ) {
-					adv2.takeDegats(adv1.getPuissance(),adv1.getniveau());				
+					adv2.takeDegats(adv1.getPuissance());				
 					if(adv2.getPtVie() > 0) {
-						adv1.takeDegats(adv2.getPuissance(),adv2.getniveau());
+						adv1.takeDegats(adv2.getPuissance());
 					}
 						
 					if(adv1.getPtVie() <= 0) {
